@@ -169,10 +169,10 @@
     "node": ">=18"
   },
   "scripts": {
-    "start": "tsup --watch",
+    "start": "node init && tsup --watch",
     "clean": "rimraf ./lib",
     "lint": "eslint \"{cli,src,test}/**/*.ts\"",
-    "build": "pnpm clean && cross-env NODE_ENV=production tsup && pnpm patch:dts",
+    "build": "node init && pnpm clean && cross-env NODE_ENV=production tsup && pnpm patch:dts",
     "patch:dts": "node \"./config/scripts/patch-ts.js\"",
     "publint": "publint",
     "test": "pnpm test:unit && pnpm test:node && pnpm test:browser && pnpm test:native",
